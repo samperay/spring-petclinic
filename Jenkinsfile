@@ -1,14 +1,15 @@
 pipeline { 
     agent any 
+    stages {
         stage('Build') { 
             steps { 
-                sh './mvwn clean package'
+                sh 'cd spring-petclinic; ./mvnw package' 
             }
         }
-
-        stage('Copy Artifact'){
+        stage('Copy Artefact'){
             steps {
-                sh 'sudo cp -rvf target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar /mnt/artefact/'
+                sh 'sudo cp target/spring-petclinic-*.jar /mnt/artefact'
             }
         }
+    }
 }
