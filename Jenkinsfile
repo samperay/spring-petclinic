@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh 'cd spring-petclinic; ./mvnw package' 
+                sh './mvnw package' 
             }
         }
         stage('Copy Artefact'){
