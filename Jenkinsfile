@@ -8,6 +8,8 @@ pipeline {
         }
         stage('Copy Artefact'){
             steps {
+                sh 'sudo mkdir /mnt/artefact'
+                sh 'chown jenkins.jenkins /mnt/artefact'
                 sh 'sudo cp target/spring-petclinic-*.jar /mnt/artefact'
             }
         }
